@@ -15,6 +15,7 @@
 		6AB354BC1E5B1BF6006C7C7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB354BA1E5B1BF6006C7C7B /* LaunchScreen.storyboard */; };
 		6AB354C71E5B1BF6006C7C7B /* TD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB354C61E5B1BF6006C7C7B /* TD5Tests.swift */; };
 		6AB354D21E5B1BF6006C7C7B /* TD5UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB354D11E5B1BF6006C7C7B /* TD5UITests.swift */; };
+		6AB354E11E5B1F60006C7C7B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB354E01E5B1F60006C7C7B /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6AB354D11E5B1BF6006C7C7B /* TD5UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TD5UITests.swift; sourceTree = "<group>"; };
 		6AB354D31E5B1BF6006C7C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AB354DF1E5B1DD4006C7C7B /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		6AB354E01E5B1F60006C7C7B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D9B2EEE77D8E980C0E9974C1 /* Pods_TD5.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TD5.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				6AB354B11E5B1BF6006C7C7B /* AppDelegate.swift */,
 				6AB354B31E5B1BF6006C7C7B /* ViewController.swift */,
 				6AB354DF1E5B1DD4006C7C7B /* Location.gpx */,
+				6AB354E01E5B1F60006C7C7B /* MapViewController.swift */,
 				6AB354B51E5B1BF6006C7C7B /* Main.storyboard */,
 				6AB354B81E5B1BF6006C7C7B /* Assets.xcassets */,
 				6AB354BA1E5B1BF6006C7C7B /* LaunchScreen.storyboard */,
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB354B41E5B1BF6006C7C7B /* ViewController.swift in Sources */,
+				6AB354E11E5B1F60006C7C7B /* MapViewController.swift in Sources */,
 				6AB354B21E5B1BF6006C7C7B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
