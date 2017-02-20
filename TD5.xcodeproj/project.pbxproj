@@ -50,6 +50,7 @@
 		6AB354CD1E5B1BF6006C7C7B /* TD5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TD5UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB354D11E5B1BF6006C7C7B /* TD5UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TD5UITests.swift; sourceTree = "<group>"; };
 		6AB354D31E5B1BF6006C7C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AB354DF1E5B1DD4006C7C7B /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D9B2EEE77D8E980C0E9974C1 /* Pods_TD5.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TD5.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +116,7 @@
 			children = (
 				6AB354B11E5B1BF6006C7C7B /* AppDelegate.swift */,
 				6AB354B31E5B1BF6006C7C7B /* ViewController.swift */,
+				6AB354DF1E5B1DD4006C7C7B /* Location.gpx */,
 				6AB354B51E5B1BF6006C7C7B /* Main.storyboard */,
 				6AB354B81E5B1BF6006C7C7B /* Assets.xcassets */,
 				6AB354BA1E5B1BF6006C7C7B /* LaunchScreen.storyboard */,
@@ -591,6 +593,7 @@
 				6AB354D81E5B1BF6006C7C7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AB354D91E5B1BF6006C7C7B /* Build configuration list for PBXNativeTarget "TD5Tests" */ = {
 			isa = XCConfigurationList;
@@ -599,6 +602,7 @@
 				6AB354DB1E5B1BF6006C7C7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AB354DC1E5B1BF6006C7C7B /* Build configuration list for PBXNativeTarget "TD5UITests" */ = {
 			isa = XCConfigurationList;
@@ -607,6 +611,7 @@
 				6AB354DE1E5B1BF6006C7C7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
