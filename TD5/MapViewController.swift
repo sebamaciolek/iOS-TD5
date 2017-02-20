@@ -25,8 +25,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = CLLocationCoordinate2D(latitude: 11.12, longitude: 12.11)
-        annotation.title = "test nom"
-        annotation.subtitle = "test adresse"
+        annotation.title = "nom"
+        annotation.subtitle = "adresse"
+        
         outletMapView.addAnnotation(annotation)
         
     }
@@ -36,7 +37,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
