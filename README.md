@@ -15,7 +15,6 @@ Tâches à réaliser : (lien du pdf http://dam.lanoosphere.com/Sd7g1fg5fd/dam_td
 - Faites un reverse geocoding des coordonnées de chaque POI pour en récupérer l'adresse
 - Centrer la carte sur Cannes - 43.551534,7.016659
 - Créer un zoom permettant de voir les POIs dans l'ensemble
-- Mettre en place un bouton i affichant la fiche détail du POI en pushant le viewCotnroller 
 
 (3) Fiche détail
 
@@ -27,6 +26,7 @@ Tâches à réaliser : (lien du pdf http://dam.lanoosphere.com/Sd7g1fg5fd/dam_td
 
 Tâches en cours :
 
+- Mettre en place un bouton i affichant la fiche détail du POI en pushant le viewCotnroller 
 
 Tâches terminés :
 
