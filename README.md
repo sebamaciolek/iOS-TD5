@@ -2,8 +2,10 @@ Nom du projet : TD5
 Binomes : Landraudie Marine et Maciolek Sebastian
 Temps : 2 semaines (2 séances)
 
-Tâches à réaliser :
+Tâches à réaliser : (lien du pdf http://dam.lanoosphere.com/Sd7g1fg5fd/dam_td5.pdf)
+
 1 Mise en place projet
+
 - Créer un écran d'attente pour le chargement des données (objet UIActivityIndicatorView)
 - Paser les données du xml http://dam.lanoosphere.com/poi.xml
 
