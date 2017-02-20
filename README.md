@@ -6,13 +6,11 @@ Tâches à réaliser : (lien du pdf http://dam.lanoosphere.com/Sd7g1fg5fd/dam_td
 
 1 Mise en place projet
 
-- Créer un écran d'attente pour le chargement des données (objet UIActivityIndicatorView)
-- Paser les données du xml http://dam.lanoosphere.com/poi.xml
+- Améliorer l'écran d'attente et faire chargement des données (objet UIActivityIndicatorView)
+- Parser les données du xml http://dam.lanoosphere.com/poi.xml
 
 2 Affichage de POIs sur la carte
 
-- Créer UINavigationController ayant pour rootViewController un object UIViewController nommé "MapViewController"
-- Ajouter un objet MKMapView au MapViewController
 - Ajouter un "pin" pour chaque POI
 - Faites un reverse geocoding des coordonnées de chaque POI pour en récupérer l'adresse
 - Centrer la carte sur Cannes - 43.551534,7.016659
@@ -35,3 +33,6 @@ Tâches en cours :
 
 Tâches terminés :
 - Créer une nouveau projet vide
+- Créer un écran d'attente 
+- Créer UINavigationController ayant pour rootViewController un object UIViewController nommé "MapViewController"
+- Ajouter un objet MKMapView au MapViewController
