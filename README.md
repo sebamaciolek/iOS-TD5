@@ -3,11 +3,11 @@ Binomes : Landraudie Marine et Maciolek Sebastian
 Temps : 2 semaines (2 séances)
 
 Tâches à réaliser :
-#1 Mise en place projet
+1 Mise en place projet
 - Créer un écran d'attente pour le chargement des données (objet UIActivityIndicatorView)
 - Paser les données du xml http://dam.lanoosphere.com/poi.xml
-- 
-#2 Affichage de POIs sur la carte
+
+2 Affichage de POIs sur la carte
 
 - Créer UINavigationController ayant pour rootViewController un object UIViewController nommé "MapViewController"
 - Ajouter un objet MKMapView au MapViewController
@@ -18,8 +18,9 @@ Tâches à réaliser :
 - Afficher la position de l'utilisateur
 - Reproduire le design imposé
 - Mettre en place un bouton i affichant la fiche détail du POI en pushant le viewCotnroller 
-    
-#3 Fiche détail
+
+3 Fiche détail
+
 - Créer un bouton pour lancer u appel vers le numéro du POI (attention au format)
 - Créer un bouton pour afficher l'itinéraire dans l'application Apple Maps (quit current app)
 - Ajouter une map
