@@ -6,8 +6,8 @@ Tâches à réaliser : (lien du pdf http://dam.lanoosphere.com/Sd7g1fg5fd/dam_td
 
 1 Mise en place projet
 
-- Créer un écran d'attente pour le chargement des données (objet UIActivityIndicatorView)
-- Paser les données du xml http://dam.lanoosphere.com/poi.xml
+En cours - Créer un écran d'attente pour le chargement des données (objet UIActivityIndicatorView)
+En cours - Paser les données du xml http://dam.lanoosphere.com/poi.xml
 
 2 Affichage de POIs sur la carte
 
