@@ -1,5 +1,5 @@
 //
-//  MapViewController.swift
+//  DetailViewController.swift
 //  TD5
 //
 //  Created by MACIOLEK Sebastian on 20/02/2017.
@@ -10,26 +10,17 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet weak var outletMapView: MKMapView!
+    @IBOutlet weak var outletDetailMapView: MKMapView!
     
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        outletMapView.showsUserLocation = true
+        outletDetailMapView.showsUserLocation = true
         locationManager.requestWhenInUseAuthorization()
-        
-        let annotation = MKPointAnnotation()
-        
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 11.12, longitude: 12.11)
-        annotation.title = "nom"
-        annotation.subtitle = "adresse"
-        
-        outletMapView.addAnnotation(annotation)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
     
+
     /*
     // MARK: - Navigation
 
@@ -46,4 +38,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func outletShare(_ sender: UIButton) {
+        let activityView = UIActivityViewController(activityItems: ["test nom"], applicationActivities: nil)
+        self.present(activityView, animated: true, completion: nil)
+    }
 }

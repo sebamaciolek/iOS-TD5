@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="77.599999999999994" y="122.78860569715144"/>
         </scene>
-        <!--Map View Controller-->
+        <!--The MAP-->
         <scene sceneID="PGw-fi-yos">
             <objects>
                 <viewController id="ky8-Y1-GUD" customClass="MapViewController" customModule="TD5" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,28 +70,126 @@
                         <viewControllerLayoutGuide type="bottom" id="vkx-KC-05t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KIK-xu-Id5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KJr-W7-3zb">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KJr-W7-3zb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KJr-W7-3zb" secondAttribute="height" multiplier="125:201" id="wE5-x0-TjM"/>
+                                </constraints>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KJr-W7-3zb" firstAttribute="top" secondItem="KIK-xu-Id5" secondAttribute="top" id="ALk-DQ-5Tw"/>
+                            <constraint firstItem="vkx-KC-05t" firstAttribute="top" secondItem="KJr-W7-3zb" secondAttribute="bottom" id="B4u-VA-iHx"/>
+                            <constraint firstItem="KJr-W7-3zb" firstAttribute="leading" secondItem="KIK-xu-Id5" secondAttribute="leading" id="O5F-Jk-4ww"/>
+                            <constraint firstAttribute="trailing" secondItem="KJr-W7-3zb" secondAttribute="trailing" id="cxW-Ua-1OX"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VQ9-1S-25B"/>
+                    <navigationItem key="navigationItem" title="The MAP" id="VQ9-1S-25B"/>
+                    <connections>
+                        <outlet property="outletMapView" destination="KJr-W7-3zb" id="uBd-x4-tc5"/>
+                        <segue destination="sW3-qw-ltJ" kind="show" id="iJl-7q-APQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fN8-n4-2PJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1904.8" y="122.78860569715144"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="z9R-cz-mJn">
+            <objects>
+                <viewController id="sW3-qw-ltJ" customClass="DetailViewController" customModule="TD5" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9we-2P-Doc"/>
+                        <viewControllerLayoutGuide type="bottom" id="nn4-Mf-vpP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GRw-JA-usI">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nVG-aZ-X2X">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nVG-aZ-X2X" secondAttribute="height" multiplier="375:128" id="1bE-u1-rfZ"/>
+                                    <constraint firstAttribute="width" constant="375" id="rT7-kR-ByU"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a83-B0-oLr">
+                                <rect key="frame" x="0.0" y="127" width="140" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Vdn-yf-Ad2"/>
+                                    <constraint firstAttribute="width" secondItem="a83-B0-oLr" secondAttribute="height" multiplier="20:7" id="mUf-8O-awR"/>
+                                </constraints>
+                                <state key="normal" title="Call">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-lh-oTI">
+                                <rect key="frame" x="148" y="127" width="79" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="K5h-wn-lDe"/>
+                                    <constraint firstAttribute="width" secondItem="hJX-lh-oTI" secondAttribute="height" multiplier="79:47" id="kYu-9p-qJI"/>
+                                </constraints>
+                                <state key="normal" title="Open Maps">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seu-Gq-zsA">
+                                <rect key="frame" x="235" y="127" width="140" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="seu-Gq-zsA" secondAttribute="height" multiplier="35:12" id="FNx-zJ-5JT"/>
+                                    <constraint firstAttribute="height" constant="48" id="Rah-n6-Cul"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="outletShare:" destination="sW3-qw-ltJ" eventType="touchUpInside" id="oeY-Vs-Qrq"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yLH-1x-wOl">
+                                <rect key="frame" x="0.0" y="174" width="375" height="429"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yLH-1x-wOl" secondAttribute="height" multiplier="125:143" id="HXA-42-ulX"/>
+                                    <constraint firstAttribute="height" constant="429" id="iu3-zR-1mf"/>
+                                    <constraint firstAttribute="width" constant="375" id="odH-UL-R0K"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="seu-Gq-zsA" secondAttribute="trailing" id="1Ld-JC-WO6"/>
+                            <constraint firstAttribute="trailing" secondItem="yLH-1x-wOl" secondAttribute="trailing" id="7Td-MQ-gRu"/>
+                            <constraint firstItem="yLH-1x-wOl" firstAttribute="leading" secondItem="GRw-JA-usI" secondAttribute="leading" id="8dh-PX-IKr"/>
+                            <constraint firstItem="hJX-lh-oTI" firstAttribute="leading" secondItem="a83-B0-oLr" secondAttribute="trailing" constant="8" id="8fs-cb-dPX"/>
+                            <constraint firstItem="seu-Gq-zsA" firstAttribute="top" secondItem="9we-2P-Doc" secondAttribute="bottom" constant="127" id="AW6-2f-BQK"/>
+                            <constraint firstItem="nVG-aZ-X2X" firstAttribute="top" secondItem="9we-2P-Doc" secondAttribute="bottom" id="Jnk-qG-wqb"/>
+                            <constraint firstItem="a83-B0-oLr" firstAttribute="leading" secondItem="GRw-JA-usI" secondAttribute="leading" id="Poj-OO-wU8"/>
+                            <constraint firstItem="nn4-Mf-vpP" firstAttribute="top" secondItem="yLH-1x-wOl" secondAttribute="bottom" id="cjI-Tu-wce"/>
+                            <constraint firstItem="hJX-lh-oTI" firstAttribute="top" secondItem="9we-2P-Doc" secondAttribute="bottom" constant="127" id="fK0-G0-vME"/>
+                            <constraint firstAttribute="trailing" secondItem="nVG-aZ-X2X" secondAttribute="trailing" id="gn5-h4-PnG"/>
+                            <constraint firstItem="seu-Gq-zsA" firstAttribute="leading" secondItem="hJX-lh-oTI" secondAttribute="trailing" constant="8" id="iJj-VA-J3j"/>
+                            <constraint firstItem="a83-B0-oLr" firstAttribute="top" secondItem="9we-2P-Doc" secondAttribute="bottom" constant="127" id="kCG-xq-Bul"/>
+                            <constraint firstItem="nVG-aZ-X2X" firstAttribute="leading" secondItem="GRw-JA-usI" secondAttribute="leading" id="mFi-Sp-IAz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="outletDetailMapView" destination="yLH-1x-wOl" id="RN1-pE-zl3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RGL-Y2-G9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2824.5" y="122.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bn2-b8-GXY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Xj-Pw-0Kj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VyW-HE-TA0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="VyW-HE-TA0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
