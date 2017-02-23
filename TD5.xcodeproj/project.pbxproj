@@ -69,11 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				4B15CC5D1E5B4F860002A8C8 /* SWXMLHash.framework in Frameworks */,
-=======
 				6AB354E51E5B39DE006C7C7B /* MapKit.framework in Frameworks */,
->>>>>>> 815b902735a9df8f8aad77f6759750ac9515711e
 				1DB1FE3908C52622967F900A /* Pods_TD5.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,11 +161,8 @@
 		E73719D111CA2674F956FE39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				4B15CC5C1E5B4F860002A8C8 /* SWXMLHash.framework */,
-=======
 				6AB354E41E5B39DE006C7C7B /* MapKit.framework */,
->>>>>>> 815b902735a9df8f8aad77f6759750ac9515711e
 				D9B2EEE77D8E980C0E9974C1 /* Pods_TD5.framework */,
 			);
 			name = Frameworks;

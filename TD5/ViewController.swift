@@ -17,20 +17,25 @@ class ViewController: UIViewController, XMLParserDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let url = URL(string: "http://dam.lanoosphere.com/poi.xml")
+        {
+
         do{
-            let url = URL(string: "http://dam.lanoosphere.com/poi.xml")
-            let data = try Data(contentsOf: url!)
+           // let url = URL(string: "http://dam.lanoosphere.com/poi.xml")
+            let data = try Data(contentsOf: url)
             let xml = SWXMLHash.parse(String(data: data, encoding: .utf8)!)
+            
             // Do any additional setup after loading the view, typically from a nib.
             self.navigationController?.setNavigationBarHidden(true, animated: false)
+            
+            // Start indicator animation
             self.activityIndicator.startAnimating()
             
             // Parsing the XML
-            //dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0).asynchronously(execute: {
-            
             DispatchQueue.global().async {
                 // qos' default value is ´DispatchQoS.QoSClass.default`
+                var poiTable: [POI] = []
+                
                 for d in xml["Data"]["POI"] {
                     let poi = POI(id: Int((d.element?.attributes["id"])!)!,
                                   name:((d.element?.attributes["name"])!)!,
@@ -41,20 +46,32 @@ class ViewController: UIViewController, XMLParserDelegate {
                                   mail: (d.element?.attributes["mail"])!,
                                   url: (d.element?.attributes["url"])!,
                                   description: (d.element?.attributes["description"])!)
-                    print(poi)
-                    // poiTabl.append(poi)
+                    print("Phone number " + poi.phone)
+                    
+                    // Add each element in a table of POI
+                    poiTable.append(poi)
                 }
+                // Wait after parsing
+                //sleep(4)
                 
+                // Stop animation of indicator and switch view
                 self.activityIndicator.stopAnimating()
+                
+                let theMapViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapScene") as! MapViewController
+                theMapViewController.poiArray = poiTable
+                let nav = UINavigationController(rootViewController: theMapViewController)
+                self.present(nav, animated: true, completion: nil)
                 
             }
             
-            // Wait during parsing
-            sleep(4)
         }
         catch {
             print("error retrieving file")
         }
+        }else{
+            print("not an URL")
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

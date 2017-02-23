@@ -36,14 +36,6 @@
                                 </constraints>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kj-h6-LVF">
-                                <rect key="frame" x="164" y="474" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="9Xj-Pw-0Kj" kind="show" id="uyU-TG-f18"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -64,7 +56,7 @@
         <!--The MAP-->
         <scene sceneID="PGw-fi-yos">
             <objects>
-                <viewController id="ky8-Y1-GUD" customClass="MapViewController" customModule="TD5" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ky8-Y1-GUD" customClass="MapViewController" customModule="TD5" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mnT-XX-V3H"/>
                         <viewControllerLayoutGuide type="bottom" id="vkx-KC-05t"/>
@@ -101,7 +93,7 @@
         <!--Detail View Controller-->
         <scene sceneID="z9R-cz-mJn">
             <objects>
-                <viewController id="sW3-qw-ltJ" customClass="DetailViewController" customModule="TD5" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sW3-qw-ltJ" customClass="DetailViewController" customModule="TD5" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9we-2P-Doc"/>
                         <viewControllerLayoutGuide type="bottom" id="nn4-Mf-vpP"/>
@@ -189,7 +181,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Xj-Pw-0Kj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="VyW-HE-TA0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="VyW-HE-TA0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
