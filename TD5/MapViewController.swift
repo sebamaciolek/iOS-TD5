@@ -12,18 +12,15 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
 
-    @IBOutlet weak var outletMapView: MKMapView!{
-        didSet{
-            outletMapView.delegate = self
-        }
-    }
-
+    @IBOutlet weak var outletMapView: MKMapView!
     
     var poiArray:[POI] = []
     var locationManager: CLLocationManager!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        outletMapView.delegate = self
         
         for poi in poiArray{
             
@@ -64,27 +61,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
 
         outletMapView.setRegion(region, animated: true)
-
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
 
-        
         outletMapView.showsUserLocation = true
-        
-        //let annotation = MKPointAnnotation()
-        
-        //annotation.coordinate = CLLocationCoordinate2D(latitude: 11.12, longitude: 12.11)
-        //annotation.title = "nom"
-        //annotation.subtitle = "adresse"
-        
-        //outletMapView.addAnnotation(annotation)
-        
     }
-        
-    func outletMapView(outletMapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var annotationView = outletMapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
         if annotationView == nil{
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
@@ -93,13 +79,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             annotationView!.annotation = annotation
         }
         annotationView?.leftCalloutAccessoryView = nil
-        annotationView?.rightCalloutAccessoryView = UIButton(type: UIButtonType.detailDisclosure)
+        annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         
         return annotationView
     }
     
-    func outletMapView(outletMapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (control as? UIButton)?.buttonType == UIButtonType.detailDisclosure {
             outletMapView.deselectAnnotation(view.annotation, animated: false)
             performSegue(withIdentifier: "detailScene", sender: view)
