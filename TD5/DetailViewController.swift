@@ -19,8 +19,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        outletDetailMapView.showsUserLocation = true
-        locationManager.requestWhenInUseAuthorization()
     }
 
     override func didReceiveMemoryWarning() {

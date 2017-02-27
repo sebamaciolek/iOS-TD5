@@ -85,10 +85,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if (control as? UIButton)?.buttonType == UIButtonType.detailDisclosure {
-            outletMapView.deselectAnnotation(view.annotation, animated: false)
-            performSegue(withIdentifier: "detailScene", sender: view)
-        }
+        let mapView = self.storyboard?.instantiateViewController(withIdentifier: "detailScene") as! DetailViewController
+        navigationController?.pushViewController(mapView, animated: true)
     }
 
 
