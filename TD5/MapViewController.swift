@@ -48,6 +48,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     }
                 }
             })
+            outletMapView.addAnnotation(pointAnnotation)
         }
         
         // Centering the camera on Canne
