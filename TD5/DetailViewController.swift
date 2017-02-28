@@ -9,16 +9,23 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SDWebImage
 
 class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var outletDetailMapView: MKMapView!
+    @IBOutlet weak var outletImage: UIImageView!
     
     let locationManager = CLLocationManager()
     
+    var phone = String()
+    var image = String()
+    var coordinate = CLLocationCoordinate2D()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        outletImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "WindowsLoadingScreen"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +33,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

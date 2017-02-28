@@ -25,9 +25,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         for poi in poiArray{
             
             let location = CLLocationCoordinate2D(latitude: poi.latitude, longitude: poi.longitude)
-            let pointAnnotation = MKPointAnnotation()
-            pointAnnotation.coordinate = location
+            let pointAnnotation = Annotation(latitude: poi.latitude, longitude: poi.longitude)
+            //pointAnnotation.coordinate = location
             pointAnnotation.title = poi.name
+            pointAnnotation.phone = poi.phone
+            pointAnnotation.image = poi.image
             
             let geoCoder = CLGeocoder()
             
@@ -85,6 +87,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let annotation = view.annotation as? Annotation
+        let detailView = DetailViewController()
+        
+        detailView.coordinate = (annotation?.coordinate)!
+        detailView.phone = (annotation?.phone)!
+        detailView.image = (annotation?.image)!
+        
         let mapView = self.storyboard?.instantiateViewController(withIdentifier: "detailScene") as! DetailViewController
         navigationController?.pushViewController(mapView, animated: true)
     }
