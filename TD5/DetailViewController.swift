@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        outletImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "WindowsLoadingScreen"))
+        outletImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "wait"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     */
     
-    @IBAction func outletShare(_ sender: UIButton) {
+    @IBAction func actionShare(_ sender: UIButton) {
         let activityView = UIActivityViewController(activityItems: ["test nom"], applicationActivities: nil)
         self.present(activityView, animated: true, completion: nil)
     }

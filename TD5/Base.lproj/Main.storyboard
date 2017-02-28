@@ -139,7 +139,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="outletShare:" destination="sW3-qw-ltJ" eventType="touchUpInside" id="oeY-Vs-Qrq"/>
+                                    <action selector="actionShare:" destination="sW3-qw-ltJ" eventType="touchUpInside" id="Afr-Xp-naz"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yLH-1x-wOl">

@@ -88,14 +88,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let annotation = view.annotation as? Annotation
-        let detailView = DetailViewController()
+        
+        let detailView = self.storyboard?.instantiateViewController(withIdentifier: "detailScene") as! DetailViewController
         
         detailView.coordinate = (annotation?.coordinate)!
         detailView.phone = (annotation?.phone)!
         detailView.image = (annotation?.image)!
         
-        let mapView = self.storyboard?.instantiateViewController(withIdentifier: "detailScene") as! DetailViewController
-        navigationController?.pushViewController(mapView, animated: true)
+        navigationController?.pushViewController(detailView, animated: true)
     }
 
 
