@@ -16,7 +16,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var outletDetailMapView: MKMapView!
     @IBOutlet weak var outletImage: UIImageView!
     
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
+    var myRoute : MKRoute!
+    var currentLocation = CLLocationCoordinate2D()
     
     var titre = String()
     var phone = String()
@@ -28,6 +30,51 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         super.viewDidLoad()
         
         outletImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "wait"))
+        self.navigationItem.title = titre
+        
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        outletDetailMapView.showsUserLocation = true
+        
+        let depart = MKPointAnnotation()
+        let destination = MKPointAnnotation()
+        
+        //Position de l'utilisateur
+        depart.coordinate = (locationManager.location?.coordinate)!
+        depart.title = "Ma position"
+        outletDetailMapView.addAnnotation(depart)
+        
+        destination.coordinate = coordinate
+        destination.title = titre
+        outletDetailMapView.addAnnotation(destination)
+        outletDetailMapView.centerCoordinate = destination.coordinate
+        outletDetailMapView.delegate = self
+        
+        //Span of the map
+        outletDetailMapView.setRegion(MKCoordinateRegionMake(destination.coordinate, MKCoordinateSpanMake(0.7,0.7)), animated: true)
+        
+        let directionsRequest = MKDirectionsRequest()
+        let markTaipei = MKPlacemark(coordinate: CLLocationCoordinate2DMake(depart.coordinate.latitude, depart.coordinate.longitude), addressDictionary: nil)
+        let markChungli = MKPlacemark(coordinate: CLLocationCoordinate2DMake(destination.coordinate.latitude, destination.coordinate.longitude), addressDictionary: nil)
+        
+        directionsRequest.source = MKMapItem(placemark: markChungli)
+        directionsRequest.destination = MKMapItem(placemark: markTaipei)
+        
+        directionsRequest.transportType = MKDirectionsTransportType.automobile
+        let directions = MKDirections(request: directionsRequest)
+        
+        directions.calculate(completionHandler: {
+            response, error in
+            
+            if error == nil {
+                self.myRoute = response!.routes[0] as MKRoute
+                self.outletDetailMapView.add(self.myRoute.polyline)
+            }
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +91,13 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let myLineRenderer = MKPolylineRenderer(polyline: myRoute.polyline)
+        myLineRenderer.strokeColor = UIColor.red
+        myLineRenderer.lineWidth = 3
+        return myLineRenderer
+    }
     
     @IBAction func actionShare(_ sender: UIButton) {
         let link = NSURL(string: url)
@@ -63,5 +117,13 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = titre
         mapItem.openInMaps(launchOptions: options)
+    }
+    
+    @IBAction func actionCall(_ sender: UIButton) {
+        let formatedNumber = phone.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
+        print("calling \(formatedNumber)")
+        let phoneUrl = "tel://\(formatedNumber)"
+        let url:URL = URL(string: phoneUrl)!
+        UIApplication.shared.openURL(url)
     }
 }

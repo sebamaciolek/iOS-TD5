@@ -118,6 +118,9 @@
                                 <state key="normal" title="Call">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionCall:" destination="sW3-qw-ltJ" eventType="touchUpInside" id="wFu-ew-1g8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-lh-oTI">
                                 <rect key="frame" x="148" y="127" width="79" height="47"/>

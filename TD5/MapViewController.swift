@@ -26,7 +26,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             let location = CLLocationCoordinate2D(latitude: poi.latitude, longitude: poi.longitude)
             let pointAnnotation = Annotation(latitude: poi.latitude, longitude: poi.longitude)
-            //pointAnnotation.coordinate = location
             pointAnnotation.title = poi.name
             pointAnnotation.phone = poi.phone
             pointAnnotation.image = poi.image
