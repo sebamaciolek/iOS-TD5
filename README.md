@@ -5,14 +5,11 @@ Lien du TD : http://dam.lanoosphere.com/Sd7g1fg5fd/dam_td5.pdf
 
 Tâches à réaliser : 
 
-- Tracer le trajet entre la position actuelle du device jusqu'au POI
-- Implémenter une fonction "share" qui permet de partager le nom et la photo du POI en utilisant UIActivityViewController
+- Tracer le trajet entre la position actuelle du device jusqu'au POI sur l'app Maps
+- CORRECTION : corriger la position actuelle (enlever le pin) sur la grande carte
+- Partager l'image en plus
 
 Tâches en cours :
-
-- Afficher le titre dans le navigationBar de la page de détail
-- Créer un bouton pour lancer un appel vers le numéro du POI (attention au format)
-- Créer un bouton pour afficher l'itinéraire dans l'application Apple Maps (quit current app)
 
 Tâches terminés :
 
@@ -30,3 +27,8 @@ Tâches terminés :
 - Reproduire le design imposé
 - Ajouter une map sur la page détaillée
 - Charger l'imagine du POI de manière asynchrone
+- Afficher le titre dans le navigationBar de la page de détail
+- Tracer le trajet entre la position actuelle du device jusqu'au POI sur la petite carte
+- Implémenter une fonction "share" qui permet de partager le nom et la photo du POI en utilisant UIActivityViewController
+- Créer un bouton pour lancer un appel vers le numéro du POI (attention au format)
+- Créer un bouton pour afficher l'itinéraire dans l'application Apple Maps (quit current app)
