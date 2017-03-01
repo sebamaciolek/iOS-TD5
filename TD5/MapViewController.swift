@@ -30,6 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             pointAnnotation.title = poi.name
             pointAnnotation.phone = poi.phone
             pointAnnotation.image = poi.image
+            pointAnnotation.url = poi.url
             
             let geoCoder = CLGeocoder()
             
@@ -91,9 +92,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let detailView = self.storyboard?.instantiateViewController(withIdentifier: "detailScene") as! DetailViewController
         
+        detailView.titre = (annotation?.title)!
         detailView.coordinate = (annotation?.coordinate)!
         detailView.phone = (annotation?.phone)!
         detailView.image = (annotation?.image)!
+        detailView.url = (annotation?.url)!
         
         navigationController?.pushViewController(detailView, animated: true)
     }

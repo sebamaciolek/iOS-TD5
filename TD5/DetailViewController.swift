@@ -18,9 +18,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     let locationManager = CLLocationManager()
     
+    var titre = String()
     var phone = String()
     var image = String()
     var coordinate = CLLocationCoordinate2D()
+    var url = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,22 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     */
     
     @IBAction func actionShare(_ sender: UIButton) {
-        let activityView = UIActivityViewController(activityItems: ["test nom"], applicationActivities: nil)
+        let link = NSURL(string: url)
+        let activityView = UIActivityViewController(activityItems: [titre, link], applicationActivities: nil)
         self.present(activityView, animated: true, completion: nil)
+    }
+    
+    @IBAction func outletOpenMaps(_ sender: UIButton) {
+        
+        let regionDistance:CLLocationDistance = 10000
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinate, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = titre
+        mapItem.openInMaps(launchOptions: options)
     }
 }

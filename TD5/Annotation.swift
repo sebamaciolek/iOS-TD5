@@ -17,6 +17,7 @@ class Annotation: NSObject, MKAnnotation {
     var phone: String?
     var latitude: Double
     var longitude: Double
+    var url: String?
     
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

@@ -128,6 +128,9 @@
                                 <state key="normal" title="Open Maps">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="outletOpenMaps:" destination="sW3-qw-ltJ" eventType="touchUpInside" id="uAv-G8-Fyy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seu-Gq-zsA">
                                 <rect key="frame" x="235" y="127" width="140" height="48"/>
