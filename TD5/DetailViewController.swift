@@ -100,8 +100,18 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     @IBAction func actionShare(_ sender: UIButton) {
-        let link = NSURL(string: url)
-        let activityView = UIActivityViewController(activityItems: [titre, link], applicationActivities: nil)
+        let linkShare = NSURL(string: url)
+        var imageShare = UIImage()
+        
+        if let urlImage = URL(string: image){
+            let data = try? Data(contentsOf: urlImage) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            imageShare = UIImage(data: data!)!
+        }
+        else{
+            print("error not an URL")
+        }
+        
+        let activityView = UIActivityViewController(activityItems: [titre, linkShare, imageShare], applicationActivities: nil)
         self.present(activityView, animated: true, completion: nil)
     }
     
@@ -109,14 +119,10 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         let regionDistance:CLLocationDistance = 10000
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinate, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = titre
-        mapItem.openInMaps(launchOptions: options)
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
     }
     
     @IBAction func actionCall(_ sender: UIButton) {
