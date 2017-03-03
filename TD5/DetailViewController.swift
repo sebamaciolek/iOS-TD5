@@ -18,7 +18,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     var locationManager = CLLocationManager()
     var myRoute : MKRoute!
-    var currentLocation = CLLocationCoordinate2D()
     
     var titre = String()
     var phone = String()
@@ -57,11 +56,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         outletDetailMapView.setRegion(MKCoordinateRegionMake(destination.coordinate, MKCoordinateSpanMake(0.7,0.7)), animated: true)
         
         let directionsRequest = MKDirectionsRequest()
-        let markTaipei = MKPlacemark(coordinate: CLLocationCoordinate2DMake(depart.coordinate.latitude, depart.coordinate.longitude), addressDictionary: nil)
-        let markChungli = MKPlacemark(coordinate: CLLocationCoordinate2DMake(destination.coordinate.latitude, destination.coordinate.longitude), addressDictionary: nil)
+        let markDepart = MKPlacemark(coordinate: CLLocationCoordinate2DMake(depart.coordinate.latitude, depart.coordinate.longitude), addressDictionary: nil)
+        let markDestination = MKPlacemark(coordinate: CLLocationCoordinate2DMake(destination.coordinate.latitude, destination.coordinate.longitude), addressDictionary: nil)
         
-        directionsRequest.source = MKMapItem(placemark: markChungli)
-        directionsRequest.destination = MKMapItem(placemark: markTaipei)
+        directionsRequest.source = MKMapItem(placemark: markDepart)
+        directionsRequest.destination = MKMapItem(placemark: markDestination)
         
         directionsRequest.transportType = MKDirectionsTransportType.automobile
         let directions = MKDirections(request: directionsRequest)
@@ -94,7 +93,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let myLineRenderer = MKPolylineRenderer(polyline: myRoute.polyline)
-        myLineRenderer.strokeColor = UIColor.red
+        myLineRenderer.strokeColor = UIColor.blue
         myLineRenderer.lineWidth = 3
         return myLineRenderer
     }

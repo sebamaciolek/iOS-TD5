@@ -22,6 +22,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         outletMapView.delegate = self
         
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        outletMapView.showsUserLocation = true
+        
         for poi in poiArray{
             
             let location = CLLocationCoordinate2D(latitude: poi.latitude, longitude: poi.longitude)
@@ -37,9 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             geoCoder.reverseGeocodeLocation(newLocation, completionHandler: { (placemark, error) -> Void in
                 
                 if placemark!.count > 0 {
-                    print(poi.latitude)
                     let thePlaceMark = placemark![0] as CLPlacemark
-                    
                     
                     if let street = thePlaceMark.addressDictionary?["Street"]
                     {
@@ -63,13 +68,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
 
         outletMapView.setRegion(region, animated: true)
-        
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-
-        outletMapView.showsUserLocation = true
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

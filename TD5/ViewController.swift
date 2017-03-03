@@ -46,7 +46,6 @@ class ViewController: UIViewController, XMLParserDelegate {
                                   mail: (d.element?.attributes["mail"])!,
                                   url: (d.element?.attributes["url"])!,
                                   description: (d.element?.attributes["description"])!)
-                    print("Phone number " + poi.phone)
                     
                     // Add each element in a table of POI
                     poiTable.append(poi)
