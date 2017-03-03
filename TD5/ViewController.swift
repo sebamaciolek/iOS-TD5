@@ -51,7 +51,7 @@ class ViewController: UIViewController, XMLParserDelegate {
                     poiTable.append(poi)
                 }
                 // Wait after parsing
-                //sleep(4)
+                sleep(2)
                 
                 // Stop animation of indicator and switch view
                 self.activityIndicator.stopAnimating()
